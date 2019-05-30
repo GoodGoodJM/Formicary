@@ -1,12 +1,17 @@
-﻿using System;
+﻿using System.Threading.Tasks;
+using Formicary.Hosting;
 
 namespace Formicary.Sample
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var host = FormicaryHostBuilder
+                .Create(new Startup(args))
+                .Build();
+
+            await host.StartAsync();
         }
     }
 }
