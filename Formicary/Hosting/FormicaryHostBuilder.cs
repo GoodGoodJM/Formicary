@@ -5,8 +5,6 @@ namespace Formicary.Hosting
 {
     public class FormicaryHostBuilder
     {
-        private const string ENV_PREFIX = "FORMICARY_";
-
         public static IHostBuilder Create(IStartup startup) => new FormicaryHostBuilder(startup).Create();
 
         private readonly IStartup _startup;
