@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Formicary.Hosting;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace Formicary.Sample
 {
@@ -9,6 +11,7 @@ namespace Formicary.Sample
         {
             var host = FormicaryHostBuilder
                 .Create(new Startup(args))
+                .ConfigureLogging(builder => builder.AddConsole())
                 .Build();
 
             await host.StartAsync();
